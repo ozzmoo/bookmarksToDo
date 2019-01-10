@@ -2,6 +2,7 @@
 <div class="wrap">
     <div class="header_book">
         <h1>Bookmarks</h1>
+        <button class="close"> &#x2716; </button>
     </div>
     
     <div class="book">
@@ -11,7 +12,7 @@
             <p>Title</p>
             <input type="text" class="user_title" placeholder="Enter bookmark title" v-model="title">
             <input class="add" type="button" value="Add" @click="addBookmark">
-
+            
             <p class="textCap">Text</p>
             <textarea class="user_text" placeholder="Enter your bookmark" v-model="text" cols="30" rows="10"></textarea>
             
@@ -26,7 +27,7 @@
                     <p class="title_content">
                         {{post.title}}
                     </p>
-                    <button class="remove" @click="removeBookmark(n)"> &#10006 </button>
+                    <button class="remove" @click="removeBookmark(n)"> 	&#x2716; </button>
                 </div>
 
                 <div class="text">
@@ -100,25 +101,43 @@ export default {
 <style>
 
 *{  
-    font-family: sans-serif;
+    font-family: "Courier New";
     padding: 0;
     margin: 0;
     outline: none;
 }
 
 .header_book{
+    position: relative;
+    height: 26px;
     margin: -2px -8px auto -8px;
     background-color: #008284;
     margin-bottom: 20px;
 
 }
 .header_book h1{
+    line-height: 26px;
     font-family: sans-serif ;
-    padding: 2px;
+    font-weight: 100;
     color: white;
     font-size: 15px;
     margin-top: -8px;
     margin-left: 5px;
+}
+
+.close{
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    border: 2px outset #EBE9ED;
+    color: rgb(66, 66, 66);
+    text-align: center;
+    line-height: 18px;
+    width: 20px;
+    height: 18px;
+}
+.close:active{
+    border: 1px inset #EBE9ED;
 }
 
 .wrap{
@@ -177,6 +196,7 @@ export default {
 }
 .add:active{
     outline: 1px dotted black;
+    border: 1px inset #EBE9ED;
 }
 
 .bookmark_wrap{
@@ -195,13 +215,13 @@ export default {
     grid-template-columns: 1fr;
     border: 2px outset #EBE9ED;
 
-
 }
 
 .title{
+    height: 20px;
     display: grid;
     grid-template-columns: 9fr 1fr;
-    padding: 5px;
+    padding: 3px;
     background-color: #008284;
     color: white;
 }
@@ -211,18 +231,21 @@ export default {
     min-height: 40px;
     padding: 5px;
     background-color: #C7C3C6;
-
-    
+ 
 }
+
 .remove{
+    border: 2px outset #EBE9ED;
+    color: rgb(66, 66, 66);
     text-align: center;
-    line-height: 15px;
+    line-height: 18px;
     margin-right: 0px;
     margin-left: auto;
     width: 20px;
     height: 18px;
 }
-
-
+.remove:active{
+    border: 1px inset #EBE9ED;
+}
 
 </style>
