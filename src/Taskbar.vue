@@ -1,5 +1,8 @@
 <template>
-    <div class="wrap-task">
+<div class="main-window">
+        <app-book v-bind:show-hide = showHide></app-book>
+
+        <div class="wrap-task">
         <div class="taskbar">
             <div class="start">
                 <div class="start-button">
@@ -9,7 +12,7 @@
             </div>
 
             <div class="main">
-                <div class="opened-window">
+                <div class="opened-window"  @click="isOpened">
                     <img src="./assets/notepad.png" alt="" class="notepad-logo">
                     <p>Bookmarks</p>
                 </div>
@@ -23,6 +26,8 @@
 
         </div>
     </div>
+</div>
+    
 
 </template>
 
@@ -30,7 +35,13 @@
 export default {
     data () {
         return {
-            time: '4:20'
+            time: '4:20',
+            showHide: true
+        }
+    },
+    methods:{
+        isOpened(){
+            return this.showHide = !this.showHide
         }
     } 
 }
@@ -38,6 +49,7 @@ export default {
 
 <style>
 *{
+    user-select:none;
     padding: 0;
     margin: 0;
     

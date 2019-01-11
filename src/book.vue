@@ -1,5 +1,5 @@
 <template>
-<div class="wrap">
+<div v-if="showHide" class="wrap" >
     <div class="header_book">
         <img src="./assets/notepad.png" alt="" class="header-notepad-logo">
         <h1>Bookmarks</h1>
@@ -51,12 +51,16 @@
 <script>
 
 export default {
+   props:{
+       "show-hide": Boolean
+   }, 
    data () {
     return {
       title:'', 
       text:'',  
       time: '',
-      posts:[]
+      posts:[],
+      show: true
     }
   } ,
   methods:{
@@ -109,8 +113,22 @@ export default {
     outline: none;
     
 }
+
+
+
 body{
     background-color: #017C7B;
+}
+
+.wrap{
+    background-color: #C7C3C6;
+    padding: 10px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 600px;
+    border: 2px outset #EBE9ED;
 }
 
 .header_book{
@@ -157,16 +175,7 @@ body{
     border: 1px inset #EBE9ED;
 }
 
-.wrap{
-    background-color: #C7C3C6;
-    padding: 10px;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 600px;
-    border: 2px outset #EBE9ED;
-}
+
 
 
 .inputs{
