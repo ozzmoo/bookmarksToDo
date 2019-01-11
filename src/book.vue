@@ -1,6 +1,7 @@
 <template>
 <div class="wrap">
     <div class="header_book">
+        <img src="./assets/notepad.png" alt="" class="header-notepad-logo">
         <h1>Bookmarks</h1>
         <button class="close"> &#x2716; </button>
     </div>
@@ -101,40 +102,56 @@ export default {
 <style>
 
 *{  
+    
     font-family: "Courier New";
     padding: 0;
     margin: 0;
     outline: none;
+    
+}
+body{
+    background-color: #017C7B;
 }
 
 .header_book{
     position: relative;
-    height: 26px;
+    height: 20px;
     margin: -2px -8px auto -8px;
-    background-color: #008284;
+    background-color: #190080;
     margin-bottom: 20px;
 
 }
 .header_book h1{
-    line-height: 26px;
+
+    background-color: #190080;
+    line-height: 20px;
     font-family: sans-serif ;
     font-weight: 100;
     color: white;
     font-size: 15px;
     margin-top: -8px;
-    margin-left: 5px;
+    margin-left: 20px;
+}
+.header-notepad-logo{
+    position: absolute;
+    left: 2px;
+    top: 3px;
+    width: 17px;
+    height: 15px;
 }
 
 .close{
+    background-color: #C7C3C6;
     position: absolute;
-    right: 4px;
-    top: 4px;
+    right: 2.5px;
+    top: 2.5px;
     border: 2px outset #EBE9ED;
     color: rgb(66, 66, 66);
     text-align: center;
-    line-height: 18px;
-    width: 20px;
-    height: 18px;
+    line-height: 13px;
+    font-size: 10px;
+    width: 17px;
+    height: 15px;
 }
 .close:active{
     border: 1px inset #EBE9ED;
@@ -153,7 +170,7 @@ export default {
 
 
 .inputs{
-    
+    background-color: #C7C3C6;
     margin-top: 10px;
     display: grid;
     grid-template-columns: 1fr 7fr 2fr;
@@ -163,6 +180,7 @@ export default {
 }
 
 .inputs p {
+    background-color: #C7C3C6;
     font-size: 15px;
     color: rgb(66, 66, 66);
 }
@@ -200,12 +218,14 @@ export default {
 }
 
 .bookmark_wrap{
+    background-color: #C7C3C6;
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr 9fr;
 }
 
 .bookmark{
+    background-color: #C7C3C6;
     color: rgb(66, 66, 66);
     font-size: 15px;
     margin-top: 10px;
@@ -218,31 +238,42 @@ export default {
 }
 
 .title{
+    position: relative;
     height: 20px;
     display: grid;
     grid-template-columns: 9fr 1fr;
-    padding: 3px;
-    background-color: #008284;
+    background-color: #190080;
     color: white;
+}
+.title_content{
+    line-height: 20px;
+    font-size: 14px;
+    background-color: #190080;
 }
 
 .text{
+
     font-size: 14px;
     min-height: 40px;
     padding: 5px;
     background-color: #C7C3C6;
- 
+}
+.text_content{
+    background-color: #C7C3C6;
 }
 
 .remove{
+    position: absolute;
+    top: 2.5px;
+    right: 2.5px;
+    background-color: #C7C3C6;
     border: 2px outset #EBE9ED;
     color: rgb(66, 66, 66);
     text-align: center;
-    line-height: 18px;
-    margin-right: 0px;
-    margin-left: auto;
-    width: 20px;
-    height: 18px;
+    line-height: 13px;
+    font-size: 10px;
+    width: 17px;
+    height: 15px;
 }
 .remove:active{
     border: 1px inset #EBE9ED;
