@@ -58,7 +58,7 @@ export default {
     return {
       title:'', 
       text:'',  
-      time: '',
+      publicDate: '',
       posts:[],
       show: true
     }
@@ -67,8 +67,8 @@ export default {
       addBookmark: function() {
 
           if(this.text != ''){
-            let tempObj = {'title':this.title , 'text':this.text, 'time':this.time}  
-            this.time=Date()
+            let tempObj = {'title':this.title , 'text':this.text, 'publicDate':this.publicDate}  
+            this.publicDate=Date()
             this.posts.push(tempObj)
             this.title = ''
             this.text = ''

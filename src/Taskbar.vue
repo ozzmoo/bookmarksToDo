@@ -1,6 +1,10 @@
 <template>
 <div class="main-window">
-        <app-book v-bind:show-hide = showHide></app-book>
+
+        <transition name="fade">
+            <app-book v-bind:show-hide = showHide></app-book>
+        </transition>
+        
 
         <div class="wrap-task">
         <div class="taskbar">
@@ -35,19 +39,37 @@
 export default {
     data () {
         return {
-            time: '4:20',
+            time: '',
             showHide: true
         }
     },
     methods:{
         isOpened(){
             return this.showHide = !this.showHide
+        },
+        realTimer(){
+            let d = new Date()
+            this.time = d.toLocaleTimeString()
         }
-    } 
+    },
+    mounted() {
+        this.interval = setInterval(this.realTimer, 1000)
+    },
+    beforeDestroy() {
+        clearInterval(this.interval)
+    }
 }
 </script>
 
 <style>
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
 *{
     user-select:none;
     padding: 0;
