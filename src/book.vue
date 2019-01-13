@@ -1,9 +1,9 @@
 <template>
-<div v-if="showHide" class="wrap" >
+<div class="wrap" >
     <div class="header_book">
         <img src="./assets/notepad.png" alt="" class="header-notepad-logo">
         <h1>Bookmarks</h1>
-        <button class="close"> &#x2716; </button>
+        <button @click="isClosed" class="close"> ✖ </button>
     </div>
     
     <div class="book">
@@ -51,16 +51,14 @@
 <script>
 
 export default {
-   props:{
-       "show-hide": Boolean
-   }, 
    data () {
     return {
       title:'', 
       text:'',  
       publicDate: '',
       posts:[],
-      show: true
+      show: true,
+      close: true
     }
   } ,
   methods:{
@@ -94,7 +92,10 @@ export default {
       saveBookmarks() {
         const parsed = JSON.stringify(this.posts);
         localStorage.setItem('posts', parsed);
-      }   
+      },
+      isClosed(){
+            return this.close = !this.close
+      }  
   },
   beforeMount(){
       this.update()

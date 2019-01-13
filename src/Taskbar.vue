@@ -1,9 +1,11 @@
 <template>
 <div class="main-window">
 
+        <app-desk></app-desk>
         <transition name="fade">
-            <app-book v-bind:show-hide = showHide></app-book>
+            <app-book v-if="showHide"></app-book>
         </transition>
+        
         
 
         <div class="wrap-task">
